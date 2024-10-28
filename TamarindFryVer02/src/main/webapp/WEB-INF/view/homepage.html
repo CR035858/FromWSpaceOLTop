@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+	h2,h3{
+		color :rgb(255, 128, 64);
+	}
+	a{
+		color : #38E532;
+	}
+	body
+	{
+		background-image: url("/TamarindFryVer02/URLToReachResourcesFolder/images/low_poly_banner_design_1711.jpg");
+	}
+</style>
+</head>
+<body bgcolor="aqua">
+<center>
+<h2> <span th:text = "'Hello, ' + ${mymessage}"></span></h2>
+
+
+<h2>Come Find & Buy wide Range of Products  @ Tamarind Fry</h2>
+
+<h3><a th:href="@{login}">Go To Login Page...</a> </h3>
+<h3><a th:href="@{register}">Go To Registration Page...</a></h3>
+
+
+
+</center>
+</body>
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width">
+<!-- Style 01 For NavBar -->
+
+<!--
+	#navigate{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0%;
+    z-index: 1;
+}
+	<a th:href="@{/greet/sayHello}"
+		class="btn btn-primary btn-sm mb-3">
+		Go Back to HOME Page
+		
+	</a>
+ -->
+<style type="text/css">
+body{
+		background : #CBDCF7;
+}
+header
+{
+	position: -webkit-sticky;
+    position: sticky;
+	z-index: 1;
+	color :rgb(0, 0, 255);
+	top: 0%;
+	width: 100%;	
+}
+nav {
+	display: block;
+	/*position: absolute;*/
+	
+	position: -webkit-sticky;
+    position: sticky;
+	z-index: 1;
+	
+	top: 0%;
+	width: 100%;
+	background-color :deepskyblue;
+	
+}
+li{
+	list-style-type: none;
+	display: inline;
+	margin-right: 20px;
+	font-size:25px
+}
+.ul1 > li
+{
+	font-size:20px
+}
+.ul2 > li
+{
+	font-size:20px
+}
+a:link {
+	color: 
+	#fff;
+	text-decoration: none;
+}
+a:hover 
+{
+	color: rgb(44, 166, 211);
+	text-decoration: none;
+}
+li > ul 
+{
+	display: none
+}
+li:hover .ul1 
+{
+	display: block; 
+	position: absolute; 
+	left:175px;
+	background-color:paleturquoise;
+	margin:0;
+}
+li:hover .ul2 
+{
+	display: block; 
+	position: absolute; 
+	left:390px;
+	background-color:paleturquoise;
+	margin:0;
+}
+li:hover ul li a:link
+{
+	display: block;
+	margin-top: 2px;
+	margin-left:-30px;
+}
+ .menu > li:nth-last-child(1){
+    float: right;
+    margin-right: 10px;
+    }
+/* Style 02  For Articles-Main GRID */
+.element {
+    	/*width: 250px;
+    	height: 250px;*/
+	background-color: rgba(255, 255, 153, 0.85);
+    	color: #000;
+    	border-radius: 10px;
+    	box-shadow: 0px 8px 8px 0px rgba(110,110,110,0.3);
+  }
+.element:hover
+{
+	/*width: 253px;
+    	height: 253px;*/
+    	background-color: rgba(51, 255, 51, 0.75);
+		box-shadow: 5px 12px 12px 0px rgba(100,100,100,0.7);
+}
+
+/* Style 03 GRID Style*/
+
+.grid { 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  align-items: stretch;
+  }
+.grid > article {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+}
+.grid > article img {
+  max-width: 100%;
+}
+.text {
+  padding: 0 20px 20px;
+
+}
+.text > button {
+  background: gray;
+  border: 0;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  }
+button
+{
+	border-radius: 10px;
+}
+button:hover
+{
+	border-radius: 10px;
+	box-shadow: 4px 4px 4px 0px  rgba(150,150,150,0.6);
+}
+.categories 
+{
+	align-items: center;
+	width : 300 px;
+	height : 55 px ;
+	border : 2 solid blue;
+}
+</style>
+
+</head>
+<body>
+	<center>
+	<header>
+		<h2>Welcome to Online Shopping Site - Buy Your Favourite Item at Attractive Prices</h2>
+		<h3> <span th:text = "'Hello, ' + ${mymessage}"></span></h3>
+	</header>
+	</center>
+<!--	
+<center>
+<table border="2">
+	<tr>
+		<td>Go To Best Sellers Page</td>
+		<td><a th:href="@{bestSellers}">Best Sellers...</a></td>
+	</tr>
+	
+</table>
+<h4><a th:href="@{login}">Go Back To Home Page...</a> </h4>
+<img src="/TamarindFryVer02/URLToReachResourcesFolder/images/flower.png" height="100" width="100" alt="image not found"/>
+</center>
+-->
+<nav>
+<ul class="menu">
+	<li>
+		<a th:href="@{/navigate/buyGoods}">Buy</a>
+	</li>
+	<li>
+		<a th:href="@{/navigate/sellGoods}">Sell</a>
+	</li>
+	<li>
+		<a th:href="@{/navigate/categories}">Product Categories</a>
+		<ul class="ul1">
+			<li><a th:href="@{/navigate/electronics}">Electronics</a></li>
+			<li><a th:href="@{/navigate/hardware}">Hardware</a></li>
+			<li><a th:href="@{/navigate/software}">Software</a></li>
+			<li><a th:href="@{/navigate/appliances}">Home Applicances</a></li>
+			<li><a th:href="@{/navigate/cosmetics}">Cosmetics</a></li>
+		</ul>
+	</li>
+	<li>
+		<a th:href="@{/navigate/custService}">Customer Services</a>
+		<ul class="ul2">
+			<li><a th:href="@{/navigate/complaints}">Complaints</a></li>
+			<li><a th:href="@{/navigate/suggestions}">Suggestions</a></li>
+			<li><a th:href="@{/navigate/appreciation}">Appreciation</a></li>
+			<li><a th:href="@{/navigate/trackOrder}">Track Order Status</a></li>
+			<li><a th:href="@{/navigate/addCard}">Add Card Details</a></li>
+		</ul>
+	</li>
+	<li>
+		<a th:href="@{/navigate/dayDeals}">Todays Deals</a>
+	</li>
+	<li>
+		<a th:href="@{/navigate/contact}">Contact</a>
+	</li>
+	<li>
+		<a th:href="@{/greet/sayHello}">Home</a>
+	</li>
+</ul>
+</nav>
+</div>
+<center>
+<div class="categories">
+	<form th:action="@{/products/productByCategory}" th:object="${product}">
+		<table>
+		<tr>
+		<td>Categories :</td>
+		<td>
+			<select th:field="*{category}">
+				 <option th:each="category:${categories}" th:value="${category}" th:text="${category}"/>
+			</select>
+		</td>
+		<td>
+			<input type="submit" value="View Products"/>
+		</td>
+		</tr>
+		</table>
+	</form>
+</div>
+</center>
+<main class="grid">
+	<div class="element">
+  		<article>
+    	<img src="/TamarindFryVer02/URLToReachResourcesFolder/images/AIImage01.jpg" alt="Sample photo">
+    	<div class="text">
+      		<h3>What are AI Tools?</h3>
+      		<p>
+				AI tools are software applications that utilize artificial intelligence to 	solve specific problems.
+				And by problems, I mean a broad range of tasks, such as generating text, 	analyzing large datasets, or predicting the next big earthquake. 
+				AI tools have already transformed the way we use and interact with technology 	(think Siri, Google Maps, or smart Netflix algorithms), and this transformation
+				is only going to accelerate in the future. 
+			</p>
+      		<button>Here's How?</button>
+    	</div>
+  		</article>
+  	</div>
+  	<div class="element">
+ 		<article>
+    	<img src="/TamarindFryVer02/URLToReachResourcesFolder/images/AIImage02.jpg" alt="Sample photo">
+    	<div class="text">
+     		<h3>Benefits of AI</h3>
+      		<p>
+				There are numerous benefits to using AI tools, whether for personal or business purposes. 
+				However, there's one simple promise underpinning all of them: they are here to simplify our lives. This can mean saving us time, eliminating tasks we dislike, 	reducing errors, or enhancing our creative abilities.
+				AI-powered tools come in different forms, such as browser-based applications, extensions, or desktop/mobile apps. 
+			</p>
+      		<button>Here's What ?</button>
+    	</div>
+  		</article>
+  	</div>
+  	<div class="element">
+   		<article>
+    	<img src="/TamarindFryVer02/URLToReachResourcesFolder/images/AIImage03.jpg" alt="Sample photo">
+    	<div class="text">
+      		<h3>best artificial intelligence tools of 2023</h3>
+      		<p>
+				AI video generators and editors
+				AI image and art generators and editors
+				AI writing tools and text generators
+				AI music generators
+				AI face generators
+				AI avatar generators
+				AI painting and drawing tools
+				AI audio generators
+				AI design tools
+			</p>
+      		<button>Read more</button>
+    	</div>
+  		</article>
+  </div>
+  <div class="element">
+   		<article>
+    	<img src="/TamarindFryVer02/URLToReachResourcesFolder/images/AIImage04.jpg" alt="Sample photo">
+    	<div class="text">
+      		<h3>AI Video Generators and Editors</h3>
+      		<p>
+				Video is by far the most popular medium of our time. It appeals to multiple senses, and we simply love watching video content. But when it comes to creating 		video… Not that fun anymore.
+				Whether you’re a content creator, a professional video editor, or a complete novice, 
+				you know that creating a good video requires knowledge, skills, and the right equipment — at least 
+				if you’re doing it the traditional way. 
+			</p>
+      		<button>Stop here</button>
+    	</div>
+  		</article>
+  </div>
+  <div class="element">
+  		<article>
+    	<img src="/TamarindFryVer02/URLToReachResourcesFolder/images/AIImage05.jpg" alt="Sample photo">
+    	<div class="text">
+      		<h3>AI Writing Tools and Text Generators</h3>
+      		<p>
+				Writing is an important part of everyone’s job today. Emails, reports, social media captions, blog posts… And it takes a lot of time to ideate, draft, edit 	and format different texts. 
+				AI writing makes the process way faster and smoother. No matter which AI text generator you choose, 
+				it works on the same premise: You provide the prompts for 	your text, 
+				and the AI generates the outcome within a few seconds. 
+      		</p>
+	  		<button>Stop here</button>
+    	</div>
+  		</article>
+  </div>
+  <div class="element">
+  		<article>
+    	<img src="/TamarindFryVer02/URLToReachResourcesFolder/images/AIImage03.jpg" alt="Sample photo">
+    	<div class="text">
+      		<h3>best artificial intelligence tools of 2023</h3>
+      		<p>
+				AI video generators and editors
+				AI image and art generators and editors
+				AI writing tools and text generators
+				AI music generators
+				AI face generators
+				AI avatar generators
+				AI painting and drawing tools
+				AI audio generators
+				AI design tools
+			</p>
+      		<button>Read more</button>
+    	</div>
+  		</article>
+  </div>
+   <div class="element">
+   		<article>
+    	<img src="/TamarindFryVer02/URLToReachResourcesFolder/images/AIImage04.jpg" alt="Sample photo">
+    	<div class="text">
+      		<h3>AI Video Generators and Editors</h3>
+      		<p>
+				Video is by far the most popular medium of our time. It appeals to multiple senses, and we simply love watching video content. But when it comes to creating 		video… Not that fun anymore.
+				Whether you’re a content creator, a professional video editor, or a complete novice, 
+				you know that creating a good video requires knowledge, skills, and the right equipment — at least 
+				if you’re doing it the traditional way. 
+			</p>
+      		<button>Stop here</button>
+    	</div>
+  		</article>
+  </div>
+  <div class="element">
+   		<article>
+    	<img src="/TamarindFryVer02/URLToReachResourcesFolder/images/AIImage03.jpg" alt="Sample photo">
+    	<div class="text">
+      		<h3>best artificial intelligence tools of 2023</h3>
+      		<p>
+				AI video generators and editors
+				AI image and art generators and editors
+				AI writing tools and text generators
+				AI music generators
+				AI face generators
+				AI avatar generators
+				AI painting and drawing tools
+				AI audio generators
+				AI design tools
+			</p>
+      		<button>Read more</button>
+    	</div>
+  		</article>
+  </div>
+  <div class="element">
+ 		<article>
+    	<img src="/TamarindFryVer02/URLToReachResourcesFolder/images/AIImage02.jpg" alt="Sample photo">
+    	<div class="text">
+     		<h3>Benefits of AI</h3>
+      		<p>
+				There are numerous benefits to using AI tools, whether for personal or business purposes. 
+				However, there's one simple promise underpinning all of them: they are here to simplify our lives. This can mean saving us time, eliminating tasks we dislike, 	reducing errors, or enhancing our creative abilities.
+				AI-powered tools come in different forms, such as browser-based applications, extensions, or desktop/mobile apps. 
+			</p>
+      		<button>Here's What ?</button>
+    	</div>
+  		</article>
+  	</div>
+  	   <div class="element">
+   		<article>
+    	<img src="/TamarindFryVer02/URLToReachResourcesFolder/images/AIImage04.jpg" alt="Sample photo">
+    	<div class="text">
+      		<h3>AI Video Generators and Editors</h3>
+      		<p>
+				Video is by far the most popular medium of our time. It appeals to multiple senses, and we simply love watching video content. But when it comes to creating 		video… Not that fun anymore.
+				Whether you’re a content creator, a professional video editor, or a complete novice, 
+				you know that creating a good video requires knowledge, skills, and the right equipment — at least 
+				if you’re doing it the traditional way. 
+			</p>
+      		<button>Stop here</button>
+    	</div>
+  		</article>
+  </div>
+  <div class="element">
+  		<article>
+    	<img src="/TamarindFryVer02/URLToReachResourcesFolder/images/AIImage03.jpg" alt="Sample photo">
+    	<div class="text">
+      		<h3>best artificial intelligence tools of 2023</h3>
+      		<p>
+				AI video generators and editors
+				AI image and art generators and editors
+				AI writing tools and text generators
+				AI music generators
+				AI face generators
+				AI avatar generators
+				AI painting and drawing tools
+				AI audio generators
+				AI design tools
+			</p>
+      		<button>Read more</button>
+    	</div>
+  		</article>
+  </div>
+   <div class="element">
+   		<article>
+    	<img src="/TamarindFryVer02/URLToReachResourcesFolder/images/AIImage04.jpg" alt="Sample photo">
+    	<div class="text">
+      		<h3>AI Video Generators and Editors</h3>
+      		<p>
+				Video is by far the most popular medium of our time. It appeals to multiple senses, and we simply love watching video content. But when it comes to creating 		video… Not that fun anymore.
+				Whether you’re a content creator, a professional video editor, or a complete novice, 
+				you know that creating a good video requires knowledge, skills, and the right equipment — at least 
+				if you’re doing it the traditional way. 
+			</p>
+      		<button>Stop here</button>
+    	</div>
+  		</article>
+  </div>
+</main>
+
+
+
+</body>
+</html>

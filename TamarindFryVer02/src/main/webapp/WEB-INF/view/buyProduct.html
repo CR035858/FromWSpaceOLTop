@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Buy Product..... </title>
+	<style>
+		body 
+		{
+	        background: #CBDCF7;
+	        margin: 0;
+      	}
+      	h3,p 
+      	{
+			color :blue;	  
+		}
+	</style>
+</head>
+<!--
+	
+	int id;
+	String firstName;
+	String lastName;
+	String address;
+	String department;
+	String designation;
+	-->
+<body>
+
+	<div class="container">
+	
+	
+		<h3>Buy Product - Page</h3>
+		<hr>
+		
+		<p class="h4 mb-4">Place Order</p>
+	
+		<form action="#" th:action="@{/products/placeOrder}"
+						 th:object="${product}" method="POST">
+		
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{productId}" />
+			
+			<input type="text" th:field="*{productName}"
+					class="form-control mb-4 col-4" placeholder="Product Name" >
+
+			<input type="text" th:field="*{pricePerUnit}"
+					class="form-control mb-4 col-4" placeholder="Price Per Unit">
+
+			<input type="text" th:field="*{category}"
+					class="form-control mb-4 col-4" placeholder="Category">
+			
+			<input type="text" th:field="*{imagePath}"
+					class="form-control mb-4 col-4" placeholder="Image Path">
+
+			<input type="text" th:field="*{features}"
+					class="form-control mb-4 col-4" placeholder="Features">
+				
+			<button type="submit" class="btn btn-info col-2">Save</button>
+						
+		</form>
+	
+		<hr>
+		<a th:href="@{/cgrievance/list}">Back to CCRepresentatives List</a>
+		
+	</div>
+</body>
+
+</html>

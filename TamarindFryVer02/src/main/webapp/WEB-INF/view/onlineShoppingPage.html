@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width">
+</head>
+<body bgcolor="aqua">
+<center>
+<h3>Successful Login!!!</h3>
+<h1>Welcome to Online Shopping Site</h1>
+<table border="2">
+	<!--
+		Product Categories  
+	- Buy Products
+	- Sell
+	- Best Sellers
+	- Todays Deals
+	- Customer Service
+	- Grievances 
+		-->
+	<tr>
+		<td>Go To Students Academic Details Mgmt Page</td>
+		<td><a th:href="@{showStudentDetails}">Student Details...</a></td>
+	</tr>
+	<tr>
+		<td>Go To Students Regn Details Mgmt Page</td>
+		<td><a th:href="@{showRegnDetails}">Student Regn Details...</a></td>
+	</tr>
+	<tr>
+		<td colspan="2">Online Shoppping Site Features</td>
+	</tr>
+	<tr>
+		<td>View Product Categories Available...</td>
+		<td><a th:href="@{showProductCategories}">Product Categories...</a></td>
+	</tr>
+	<tr>
+		<td>Go To Buy Products Page</td>
+		<td><a th:href="@{buyProducts}">Buy Products...</a></td>
+	</tr>
+	<tr>
+		<td>Go to Sell Products Page</td>
+		<td><a th:href="@{todaysDeals}">Sell Products...</a></td>
+	</tr>
+		<tr>
+		<td>Todays Hottest Deals</td>
+		<td><a th:href="@{buyProducts}">Todays Deals...</a></td>
+	</tr>
+		<tr>
+		<td>Go To CustomerCare Page</td>
+		<td><a th:href="@{customerService}">Customers Service...</a></td>
+	</tr>
+		<tr>
+		<td>Grievances Page</td>
+		<td><a th:href="@{grievances}">Grievances...</a></td>
+	</tr>
+		<tr>
+		<td>Go To Best Sellers Page</td>
+		<td><a th:href="@{bestSellers}">Best Sellers...</a></td>
+	</tr>
+	<img src="/TamarindFryVer02/URLToReachResourcesFolder/images/flower.png" height="100" width="100" alt="image not found"/>
+</table>
+<h4><a th:href="@{login}">Go Back To Home Page...</a> </h4>
+
+</center>
+</body>
+</html>
